@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: caP9C2csuEjoccX6oyIw6kN+6nfGLwsTLw+taXtNAmUT4rjGkKvAXbxrRPnofri2TYjbU/apRgOckS50gL7A1RQSubbQWPTfutj4JDIJNsOpFDsquCfd4LmB+NkavNgg247gashU6cNZYSHD3Z78ShVsf9R8ZzTJQvvef+jK5b9yDCbELUGWPPjfcHFjJbzrDxgNYEHyu0/m100NuleqYqye8S8PJxgZU2Cw8hcfZ1RWFFX/ss7UXFeXsmWUEYwVPjEXbOYjzXafU+XaawoV1HNsIcJBrWs+qcw0glFTIyeF48ffdbH3BYSSX9NFh6M6gVT3g+TgNFyL5yI++dBfFOEQd2GZjQxuiTt4SgBYwnoz5z2aDRDA25B4xbR+0TkBAHCpgtcMalZ/ECZtiftqt3u190mUEmqQ/RHeY0xtGE5t1sTixFu3Ethk8HbaGWUjNg9fh3ngYWD6WUbN9SsVNETeALim+EE6B/XkHiUHnkg3d8bupnOagAW4VRz7HgAtnSxsg3vvrVwz/CvcrcgdfHRqeS+JOWdyssTFxLvTwBUiS3Adz7n/+IYd6UVSbedy8WnhaiBfnWTrA31MxyWQnueNeQw+08F9jbAh7HeNGteM1JYyMTqMHJGEcvMy4TmzqL/cUfIy4WfRDwbF+/u1UtryGU+sS2Kai7fOoSo3JgY=
+  app: quiet-cliffs-13885
+  on:
+    repo: jpquense/blog-api

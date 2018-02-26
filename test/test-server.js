@@ -30,7 +30,7 @@ describe('BlogPosts', function() {
     });
 
     it('should add an post on POST', function() {
-        const newItem = {title: 'coffee', content: 'Hello I am a fun guy blah blah blah', author: 'John Q', publishDate: 'March 30, 2018'};
+        const newItem = {title: 'coffee', content: 'Hello I am a fun guy blah blah blah', author: 'John Q', publishDate: 'March 3, 1987'};
         return chai.request(app)
           .post('/blog-posts')
           .send(newItem)
@@ -48,7 +48,8 @@ describe('BlogPosts', function() {
         const updateData = {
             title: 'foo',
             content: 'Hello i am john the wonderful',
-            author: 'John Q'
+            author: 'John Q',
+            publishDate: 'Hello 50, 3000'
         };
     
         return chai.request(app)
@@ -60,10 +61,7 @@ describe('BlogPosts', function() {
               .send(updateData);
           })
           .then(function(res) {
-            expect(res).to.have.status(200);
-            expect(res).to.be.json;
-            expect(res.body).to.be.a('object');
-            expect(res.body).to.deep.equal(updateData);
+            expect(res).to.have.status(204);
           });
       });
 

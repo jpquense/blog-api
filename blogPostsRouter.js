@@ -50,7 +50,7 @@ router.post('/', jsonParser, (req, res) => {
     }
   }
   const item = BlogPosts.create(
-  	req.body.title, req.body.content, req.body.author);
+  	req.body.title, req.body.content, req.body.author, req.body.publishDate);
   res.status(201).json(item);
 });
 
