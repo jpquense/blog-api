@@ -6,8 +6,6 @@ const jsonParser = bodyParser.json();
 
 const {BlogPosts} = require('./models');
 
-// convenience function for generating lorem text for blog
-// posts we initially add below
 function lorem() {
   return 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ' +
     'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, '
@@ -23,21 +21,10 @@ BlogPosts.create(
 BlogPosts.create(
   'Lions and tigers and bears oh my', lorem(), 'Lefty Lil');
 
-// add endpoint for GET. It should call `BlogPosts.get()`
-// and return JSON objects of stored blog posts.
-// send back JSON representation of all blog posts
-// on GET requests to root
 router.get('/', (req, res) => {
   res.json(BlogPosts.get());
 });
 
-
-// add endpoint for POST requests, which should cause a new
-// blog post to be added (using `BlogPosts.create()`). It should
-// return a JSON object representing the new post (including
-// the id, which `BlogPosts` will create. This endpoint should
-// send a 400 error if the post doesn't contain
-// `title`, `content`, and `author`
 router.post('/', jsonParser, (req, res) => {
   // ensure `name` and `budget` are in request body
   const requiredFields = ['title', 'content', 'author'];
@@ -100,4 +87,4 @@ router.delete('/:id', (req, res) => {
   res.status(204).end();
 });
 
-module.exports = router;
+// module.exports = router;
