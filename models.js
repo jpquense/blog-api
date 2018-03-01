@@ -13,7 +13,7 @@ const blogSchema = mongoose.Schema({
     firstName: String,
     lastName: String
   },
-  created: number 
+  created: Number
 });
 
 blogSchema.virtual('fullName').get(function() {

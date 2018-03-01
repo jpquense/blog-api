@@ -7,7 +7,7 @@ const morgan = require('morgan');
 
 mongoose.Promise = global.Promise;
 
-const { PORT, DATABASE_url } = require('./config');
+const { PORT, DATABASE_URL } = require('./config');
 const { BlogPosts } = require('./models.js');
 
 const app = express();
@@ -76,7 +76,7 @@ app.post('/posts', (req, res) => {
     });
 });
 
-app.post('/posts/:id', (req, res => {
+app.post('/posts/:id', (req, res) => {
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     const message = (
       `Request path id (${req.params.id}) and request body id ` +
@@ -98,7 +98,7 @@ app.post('/posts/:id', (req, res => {
     .findOneAndUpdate(req.params.id, { $set: toUpdate })
     .then(post => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Internal server error'}));
-}));
+});
 
 app.delete('/blog-posts/:id', (req, res) => {
   BlogPosts
