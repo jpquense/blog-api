@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 // GET requests to /blog-posts => return 10 posts
 
-app.get('/blog-posts', (req, res) => {
+app.get('/posts', (req, res) => {
   BlogPosts
     .find()
     .limit(10)
@@ -41,7 +41,7 @@ app.get('/blog-posts', (req, res) => {
 });
 
 // can also request by ID
-app.get('/blog-posts/:id', (req, res) => {
+app.get('/posts/:id', (req, res) => {
   BlogPosts
     .findById(req.params.id)
     .then(post => res.json(post.serialize()))
@@ -52,7 +52,7 @@ app.get('/blog-posts/:id', (req, res) => {
 });
 
 // POST request for BlogPosts
-app.post('/blog-posts', (req, res) => {
+app.post('/posts', (req, res) => {
   const requiredFields = ['title', 'content'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -76,7 +76,7 @@ app.post('/blog-posts', (req, res) => {
     });
 });
 
-app.post('/blog-posts/:id', (req, res => {
+app.post('/posts/:id', (req, res => {
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     const message = (
       `Request path id (${req.params.id}) and request body id ` +
